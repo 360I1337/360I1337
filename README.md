@@ -1,36 +1,35 @@
-<div align="center">
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f0c29,50:302b63,100:24243e&height=180&section=header&text=360I1337&fontSize=60&fontColor=ffffff&animation=fadeIn&fontAlignY=38" width="100%"/>
-
-<a href="https://github.com/360I1337">
-  <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=A78BFA&center=true&vCenter=true&width=520&lines=Backend+on+Go+%26+Python;VPN+%C2%B7+Telegram+bots+%C2%B7+Games;Always+building+something" alt="Typing SVG"/>
-</a>
-
-<img src="https://komarev.com/ghpvc/?username=360I1337&style=for-the-badge&color=7c3aed&label=PROFILE+VIEWS" />
-
-</div>
-
-### Обо мне
-
-- Делаю свой VPN-сервис **VEYLO** — серверы, клиенты, транспорты
-- Пишу Telegram-ботов
-- Делаю игры для Яндекс Игр
-
-### Стек
-
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=go,py,js,html,css,linux,bash,git,vscode&perline=9" />
+  <img src="assets/header.svg" width="100%" alt="360I1337"/>
 </p>
 
-### Проекты
+<p align="center">
+  Делаю свой VPN-сервис <b>VEYLO</b>: серверы, клиенты, транспорты.<br/>
+  Пишу Telegram-ботов и игры для Яндекс Игр.
+</p>
 
-| Проект | Что это | Стек |
-|---|---|---|
-| **VEYLO** | VPN с резервным каналом связи, reconnect с backoff | ![Go](https://img.shields.io/badge/Go-00ADD8?style=flat-square&logo=go&logoColor=white) |
-| **Лесоруб-кликер** | Кликер для Яндекс Игр на чистом JS | ![JS](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=javascript&logoColor=black) |
-| **tg-verify-bot** | Бот для проверки заявок на вступление в Telegram | ![Python](https://img.shields.io/badge/Python-3776AB?style=flat-square&logo=python&logoColor=white) |
+<p align="center">
+  <img src="https://komarev.com/ghpvc/?username=360I1337&style=flat-square&color=7c3aed&label=views" />
+</p>
 
-### Активность
+<br/>
+
+<h3 align="center">Стек</h3>
+
+<p align="center">
+  <img src="https://skillicons.dev/icons?i=go,py,js,html,css,linux,bash,git,vscode&perline=9&theme=dark" />
+</p>
+
+<br/>
+
+<h3 align="center">Проекты</h3>
+
+<p align="center">
+  <img src="assets/projects.svg" width="100%" alt="VEYLO, Лесоруб-кликер, tg-verify-bot"/>
+</p>
+
+<br/>
+
+<h3 align="center">Активность</h3>
 
 <p align="center">
   <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/metrics-calendar.svg" />
@@ -43,5 +42,3 @@
     <img alt="snake" src="https://raw.githubusercontent.com/360I1337/360I1337/output/github-snake.svg" />
   </picture>
 </p>
-
-<img src="https://capsule-render.vercel.app/api?type=waving&color=0:24243e,50:302b63,100:0f0c29&height=100&section=footer" width="100%"/>
