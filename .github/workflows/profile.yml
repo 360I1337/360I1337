@@ -16,13 +16,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - uses: Platane/snk@v3
-        with:
-          github_user_name: ${{ github.repository_owner }}
-          outputs: |
-            dist/github-snake-dark.svg?color_snake=#a78bfa&color_dots=#161229,#3b2a7a,#5b3fc4,#7c3aed,#c4b5fd
-
-      - run: sudo chmod -R a+w dist && python3 stats.py
+      - run: python3 stats.py
         env:
           METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
 
