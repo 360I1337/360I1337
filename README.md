@@ -16,7 +16,7 @@
 <h3 align="center">Stack</h3>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=go,py,js,html,css,linux,bash,git,vscode&perline=9&theme=dark" />
+  <img src="assets/stack.svg" width="100%" alt="Go, Python, JavaScript, HTML, CSS, Linux, Bash, Docker, Nginx, Git"/>
 </p>
 
 <br/>

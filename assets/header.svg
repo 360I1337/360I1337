@@ -22,15 +22,16 @@
     .mono { font-family: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace; }
     .glow { animation: drift 12s ease-in-out infinite alternate; }
     @keyframes drift { from { transform: translate(-120px, 0); } to { transform: translate(120px, 20px); } }
-    .line { opacity: 0; animation: type 12s linear infinite both; }
+    .line { opacity: 0; animation: type 16s linear infinite both; }
     .l1 { opacity: 1; }
     .l2 { animation-delay: 4s; }
     .l3 { animation-delay: 8s; }
+    .l4 { animation-delay: 12s; }
     @keyframes type {
       0%   { opacity: 1; clip-path: inset(0 100% 0 0); }
-      12%  { opacity: 1; clip-path: inset(0 0 0 0); }
-      30%  { opacity: 1; clip-path: inset(0 0 0 0); }
-      33%  { opacity: 0; clip-path: inset(0 0 0 0); }
+      9%   { opacity: 1; clip-path: inset(0 0 0 0); }
+      22%  { opacity: 1; clip-path: inset(0 0 0 0); }
+      25%  { opacity: 0; clip-path: inset(0 0 0 0); }
       100% { opacity: 0; clip-path: inset(0 0 0 0); }
     }
     .caret { animation: blink 1s steps(1) infinite; }
@@ -45,6 +46,7 @@
       <text class="line l1" x="600" y="222">Go · Python · JavaScript</text>
       <text class="line l2" x="600" y="222">VPN infrastructure &amp; network transports</text>
       <text class="line l3" x="600" y="222">Telegram bots &amp; Yandex Games titles</text>
+      <text class="line l4" x="600" y="222">now: building VEYLO</text>
     </g>
     <text class="mono caret" x="600" y="270" text-anchor="middle" font-size="22" fill="#6d5bd0">_</text>
     <rect x="0" y="316" width="1200" height="4" fill="#7c3aed" opacity=".6"/>
