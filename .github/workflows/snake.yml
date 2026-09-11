@@ -22,6 +22,7 @@ jobs:
             dist/github-snake-dark.svg?palette=github-dark
 
       - uses: lowlighter/metrics@latest
+        continue-on-error: true
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           filename: metrics-calendar.svg
@@ -32,6 +33,7 @@ jobs:
           plugin_isocalendar_duration: full-year
 
       - uses: lowlighter/metrics@latest
+        continue-on-error: true
         with:
           token: ${{ secrets.METRICS_TOKEN }}
           filename: metrics-languages.svg
@@ -43,7 +45,7 @@ jobs:
           plugin_languages_details: bytes-size, percentage
           plugin_languages_sections: most-used
 
-      - run: sudo cp /metrics_renders/*.svg dist/
+      - run: sudo cp /metrics_renders/*.svg dist/ || true
 
       - uses: crazy-max/ghaction-github-pages@v4
         with:
