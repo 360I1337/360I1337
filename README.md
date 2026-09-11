@@ -38,3 +38,11 @@
 <p align="center">
   <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/github-snake-dark.svg?v=5" width="100%" alt="snake"/>
 </p>
+
+<br/>
+
+<h3 align="center">Contact</h3>
+
+<p align="center">
+  <a href="https://t.me/MostViable"><img src="assets/contact.svg" width="100%" alt="Telegram @MostViable"/></a>
+</p>
