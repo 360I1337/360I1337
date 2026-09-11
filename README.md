@@ -3,8 +3,8 @@
 </p>
 
 <p align="center">
-  Делаю свой VPN-сервис <b>VEYLO</b>: серверы, клиенты, транспорты.<br/>
-  Пишу Telegram-ботов и игры для Яндекс Игр.
+  Building <b>VEYLO</b>, my own VPN service: servers, clients, transports.<br/>
+  Also Telegram bots and games for Yandex Games.
 </p>
 
 <p align="center">
@@ -13,7 +13,7 @@
 
 <br/>
 
-<h3 align="center">Стек</h3>
+<h3 align="center">Stack</h3>
 
 <p align="center">
   <img src="https://skillicons.dev/icons?i=go,py,js,html,css,linux,bash,git,vscode&perline=9&theme=dark" />
@@ -21,20 +21,20 @@
 
 <br/>
 
-<h3 align="center">Проекты</h3>
+<h3 align="center">Projects</h3>
 
 <p align="center">
-  <img src="assets/projects.svg" width="100%" alt="VEYLO, Лесоруб-кликер, VEYLO-бот"/>
+  <img src="assets/projects.svg" width="100%" alt="VEYLO, Lumberjack Clicker, VEYLO Bot"/>
 </p>
 
 <br/>
 
-<h3 align="center">Активность</h3>
+<h3 align="center">Activity</h3>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/stats.svg?v=3" width="100%" alt="stats"/>
+  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/stats.svg?v=4" width="100%" alt="stats"/>
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/github-snake-dark.svg?v=3" width="100%" alt="snake"/>
+  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/github-snake-dark.svg?v=4" width="100%" alt="snake"/>
 </p>

@@ -17,53 +17,62 @@
       <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity=".05"/>
     </pattern>
     <clipPath id="card"><rect width="378" height="258" rx="16"/></clipPath>
-    <g id="base">
-      <g clip-path="url(#card)">
-        <rect width="378" height="258" fill="url(#bg)"/>
-        <rect width="378" height="258" fill="url(#grid)"/>
-        <ellipse cx="120" cy="70" rx="220" ry="140" fill="url(#glow)"/>
-        <rect y="255" width="378" height="3" fill="#7c3aed" opacity=".6"/>
-      </g>
-    </g>
   </defs>
   <style>
     text { font-family: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace; }
     .title { font-size: 30px; font-weight: 700; fill: url(#title); }
     .desc  { font-size: 19px; fill: #c4b5fd; }
     .lang  { font-size: 17px; fill: #8b80c9; }
+    .glow { animation: drift 9s ease-in-out infinite alternate both; }
+    .d2 { animation-delay: -3s; }
+    .d3 { animation-delay: -6s; }
+    @keyframes drift {
+      0%   { transform: translate(0, 0); }
+      50%  { transform: translate(170px, 90px); }
+      100% { transform: translate(60px, 150px); }
+    }
     .c { animation: in .8s ease-out both; }
     .c2 { animation-delay: .15s; }
     .c3 { animation-delay: .3s; }
     @keyframes in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
   </style>
 
-  <g class="c c1">
-    <use href="#base" x="0"/>
+  <g transform="translate(0 0)"><g class="c c1" clip-path="url(#card)">
+    <rect width="378" height="258" fill="url(#bg)"/>
+    <rect width="378" height="258" fill="url(#grid)"/>
+    <ellipse class="glow d1" cx="80" cy="50" rx="200" ry="130" fill="url(#glow)"/>
+    <rect y="255" width="378" height="3" fill="#7c3aed" opacity=".6"/>
     <text class="title" x="28" y="62">VEYLO</text>
-    <text class="desc" x="28" y="108">Собственный VPN-сервис.</text>
-    <text class="desc" x="28" y="138">Резервный канал связи,</text>
-    <text class="desc" x="28" y="168">reconnect с backoff.</text>
+    <text class="desc" x="28" y="108">Self-hosted VPN service.</text>
+    <text class="desc" x="28" y="138">Fallback channel,</text>
+    <text class="desc" x="28" y="168">reconnect with backoff.</text>
     <circle cx="36" cy="216" r="7" fill="#00ADD8"/>
     <text class="lang" x="52" y="222">Go</text>
-  </g>
+  </g></g>
 
-  <g class="c c2">
-    <use href="#base" x="411"/>
-    <text class="title" x="439" y="62">Лесоруб-кликер</text>
-    <text class="desc" x="439" y="108">Кликер для Яндекс Игр</text>
-    <text class="desc" x="439" y="138">на чистом JavaScript,</text>
-    <text class="desc" x="439" y="168">без фреймворков.</text>
-    <circle cx="447" cy="216" r="7" fill="#F7DF1E"/>
-    <text class="lang" x="463" y="222">JavaScript</text>
-  </g>
+  <g transform="translate(411 0)"><g class="c c2" clip-path="url(#card)">
+    <rect width="378" height="258" fill="url(#bg)"/>
+    <rect width="378" height="258" fill="url(#grid)"/>
+    <ellipse class="glow d2" cx="80" cy="50" rx="200" ry="130" fill="url(#glow)"/>
+    <rect y="255" width="378" height="3" fill="#7c3aed" opacity=".6"/>
+    <text class="title" x="28" y="62">Lumberjack Clicker</text>
+    <text class="desc" x="28" y="108">Clicker game for</text>
+    <text class="desc" x="28" y="138">Yandex Games in plain</text>
+    <text class="desc" x="28" y="168">JavaScript, no frameworks.</text>
+    <circle cx="36" cy="216" r="7" fill="#F7DF1E"/>
+    <text class="lang" x="52" y="222">JavaScript</text>
+  </g></g>
 
-  <g class="c c3">
-    <use href="#base" x="822"/>
-    <text class="title" x="850" y="62">VEYLO-бот</text>
-    <text class="desc" x="850" y="108">Кабинет, подписки с QR,</text>
-    <text class="desc" x="850" y="138">пробный период, рефералы,</text>
-    <text class="desc" x="850" y="168">лимит устройств, админка.</text>
-    <circle cx="858" cy="216" r="7" fill="#3776AB"/>
-    <text class="lang" x="874" y="222">Python</text>
-  </g>
+  <g transform="translate(822 0)"><g class="c c3" clip-path="url(#card)">
+    <rect width="378" height="258" fill="url(#bg)"/>
+    <rect width="378" height="258" fill="url(#grid)"/>
+    <ellipse class="glow d3" cx="80" cy="50" rx="200" ry="130" fill="url(#glow)"/>
+    <rect y="255" width="378" height="3" fill="#7c3aed" opacity=".6"/>
+    <text class="title" x="28" y="62">VEYLO Bot</text>
+    <text class="desc" x="28" y="108">User dashboard, QR subs,</text>
+    <text class="desc" x="28" y="138">free trial, referrals,</text>
+    <text class="desc" x="28" y="168">device limits, admin panel.</text>
+    <circle cx="36" cy="216" r="7" fill="#3776AB"/>
+    <text class="lang" x="52" y="222">Python</text>
+  </g></g>
 </svg>

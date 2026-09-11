@@ -48,8 +48,8 @@ def render(v, today):
     total = sum(s for s, _ in langs.values()) or 1
     top = sorted(langs.items(), key=lambda kv: -kv[1][0])[:6]
 
-    nums = [(cal["totalContributions"], "коммитов за год"), (cur, "дней подряд сейчас"),
-            (best, "лучший стрик"), (v["repositories"]["totalCount"], "репозиториев")]
+    nums = [(cal["totalContributions"], "contributions / year"), (cur, "current streak"),
+            (best, "longest streak"), (v["repositories"]["totalCount"], "repositories")]
     numbers, bars, legend = [], [], []
     for i, (n, label) in enumerate(nums):
         x, y = 48 + (i % 2) * 250, 110 + (i // 2) * 110
@@ -94,7 +94,7 @@ def render(v, today):
     <ellipse cx="300" cy="150" rx="380" ry="170" fill="url(#glow)"/>
     <rect x="580" y="40" width="1" height="220" fill="#ffffff" opacity=".08"/>
     {"".join(numbers)}
-    <text class="h" x="{bx}" y="64">Языки</text>
+    <text class="h" x="{bx}" y="64">Languages</text>
     <g clip-path="url(#bar)">{"".join(bars)}</g>
     {"".join(legend)}
     <rect y="296" width="1200" height="4" fill="#7c3aed" opacity=".6"/>

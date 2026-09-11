@@ -43,8 +43,8 @@
     <text class="mono" x="600" y="160" text-anchor="middle" font-size="104" font-weight="700" fill="url(#title)" letter-spacing="4">miquella</text>
     <g class="mono" font-size="28" fill="#c4b5fd" text-anchor="middle">
       <text class="line l1" x="600" y="222">Go · Python · JavaScript</text>
-      <text class="line l2" x="600" y="222">VPN-инфраструктура и сетевые транспорты</text>
-      <text class="line l3" x="600" y="222">Telegram-боты и игры для Яндекс Игр</text>
+      <text class="line l2" x="600" y="222">VPN infrastructure &amp; network transports</text>
+      <text class="line l3" x="600" y="222">Telegram bots &amp; Yandex Games titles</text>
     </g>
     <text class="mono caret" x="600" y="270" text-anchor="middle" font-size="22" fill="#6d5bd0">_</text>
     <rect x="0" y="316" width="1200" height="4" fill="#7c3aed" opacity=".6"/>
