@@ -45,10 +45,10 @@
   <g class="c c3">
     <rect x="821" y="1" width="378" height="256" rx="16" fill="url(#card)" stroke="#2c2659" stroke-width="2"/>
     <rect x="844" y="1" width="200" height="3" fill="url(#accent)"/>
-    <text class="title" x="848" y="62">tg-verify-bot</text>
-    <text class="desc" x="848" y="108">Проверка заявок</text>
-    <text class="desc" x="848" y="138">на вступление</text>
-    <text class="desc" x="848" y="168">в Telegram-группы.</text>
+    <text class="title" x="848" y="62">VEYLO-бот</text>
+    <text class="desc" x="848" y="108">Кабинет, подписки с QR,</text>
+    <text class="desc" x="848" y="138">пробный период, рефералы,</text>
+    <text class="desc" x="848" y="168">лимит устройств, админка.</text>
     <circle cx="856" cy="220" r="8" fill="#3776AB"/>
     <text class="lang" x="874" y="227">Python</text>
   </g>

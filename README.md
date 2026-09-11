@@ -24,7 +24,7 @@
 <h3 align="center">Проекты</h3>
 
 <p align="center">
-  <img src="assets/projects.svg" width="100%" alt="VEYLO, Лесоруб-кликер, tg-verify-bot"/>
+  <img src="assets/projects.svg" width="100%" alt="VEYLO, Лесоруб-кликер, VEYLO-бот"/>
 </p>
 
 <br/>
