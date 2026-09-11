@@ -1,19 +1,36 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 260" width="1200" height="260">
   <defs>
-    <linearGradient id="card" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#16132e"/>
-      <stop offset="1" stop-color="#0e0d1a"/>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0a18"/>
+      <stop offset=".55" stop-color="#15113a"/>
+      <stop offset="1" stop-color="#0d1117"/>
     </linearGradient>
-    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
-      <stop offset="0" stop-color="#7c3aed"/>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/>
+      <stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <radialGradient id="glow">
+      <stop offset="0" stop-color="#7c3aed" stop-opacity=".45"/>
       <stop offset="1" stop-color="#7c3aed" stop-opacity="0"/>
-    </linearGradient>
+    </radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse">
+      <path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity=".05"/>
+    </pattern>
+    <clipPath id="card"><rect width="378" height="258" rx="16"/></clipPath>
+    <g id="base">
+      <g clip-path="url(#card)">
+        <rect width="378" height="258" fill="url(#bg)"/>
+        <rect width="378" height="258" fill="url(#grid)"/>
+        <ellipse cx="120" cy="70" rx="220" ry="140" fill="url(#glow)"/>
+        <rect y="255" width="378" height="3" fill="#7c3aed" opacity=".6"/>
+      </g>
+    </g>
   </defs>
   <style>
-    text { font-family: 'Segoe UI', -apple-system, 'Helvetica Neue', Arial, sans-serif; }
-    .title { font-size: 32px; font-weight: 700; fill: #f5f3ff; }
-    .desc  { font-size: 21px; fill: #a5a3c2; }
-    .lang  { font-size: 19px; fill: #c9c7e0; }
+    text { font-family: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace; }
+    .title { font-size: 30px; font-weight: 700; fill: url(#title); }
+    .desc  { font-size: 19px; fill: #c4b5fd; }
+    .lang  { font-size: 17px; fill: #8b80c9; }
     .c { animation: in .8s ease-out both; }
     .c2 { animation-delay: .15s; }
     .c3 { animation-delay: .3s; }
@@ -21,35 +38,32 @@
   </style>
 
   <g class="c c1">
-    <rect x="1" y="1" width="378" height="256" rx="16" fill="url(#card)" stroke="#2c2659" stroke-width="2"/>
-    <rect x="24" y="1" width="200" height="3" fill="url(#accent)"/>
+    <use href="#base" x="0"/>
     <text class="title" x="28" y="62">VEYLO</text>
     <text class="desc" x="28" y="108">Собственный VPN-сервис.</text>
     <text class="desc" x="28" y="138">Резервный канал связи,</text>
     <text class="desc" x="28" y="168">reconnect с backoff.</text>
-    <circle cx="36" cy="220" r="8" fill="#00ADD8"/>
-    <text class="lang" x="54" y="227">Go</text>
+    <circle cx="36" cy="216" r="7" fill="#00ADD8"/>
+    <text class="lang" x="52" y="222">Go</text>
   </g>
 
   <g class="c c2">
-    <rect x="411" y="1" width="378" height="256" rx="16" fill="url(#card)" stroke="#2c2659" stroke-width="2"/>
-    <rect x="434" y="1" width="200" height="3" fill="url(#accent)"/>
-    <text class="title" x="438" y="62">Лесоруб-кликер</text>
-    <text class="desc" x="438" y="108">Кликер для Яндекс Игр</text>
-    <text class="desc" x="438" y="138">на чистом JavaScript,</text>
-    <text class="desc" x="438" y="168">без фреймворков.</text>
-    <circle cx="446" cy="220" r="8" fill="#F7DF1E"/>
-    <text class="lang" x="464" y="227">JavaScript</text>
+    <use href="#base" x="411"/>
+    <text class="title" x="439" y="62">Лесоруб-кликер</text>
+    <text class="desc" x="439" y="108">Кликер для Яндекс Игр</text>
+    <text class="desc" x="439" y="138">на чистом JavaScript,</text>
+    <text class="desc" x="439" y="168">без фреймворков.</text>
+    <circle cx="447" cy="216" r="7" fill="#F7DF1E"/>
+    <text class="lang" x="463" y="222">JavaScript</text>
   </g>
 
   <g class="c c3">
-    <rect x="821" y="1" width="378" height="256" rx="16" fill="url(#card)" stroke="#2c2659" stroke-width="2"/>
-    <rect x="844" y="1" width="200" height="3" fill="url(#accent)"/>
-    <text class="title" x="848" y="62">VEYLO-бот</text>
-    <text class="desc" x="848" y="108">Кабинет, подписки с QR,</text>
-    <text class="desc" x="848" y="138">пробный период, рефералы,</text>
-    <text class="desc" x="848" y="168">лимит устройств, админка.</text>
-    <circle cx="856" cy="220" r="8" fill="#3776AB"/>
-    <text class="lang" x="874" y="227">Python</text>
+    <use href="#base" x="822"/>
+    <text class="title" x="850" y="62">VEYLO-бот</text>
+    <text class="desc" x="850" y="108">Кабинет, подписки с QR,</text>
+    <text class="desc" x="850" y="138">пробный период, рефералы,</text>
+    <text class="desc" x="850" y="168">лимит устройств, админка.</text>
+    <circle cx="858" cy="216" r="7" fill="#3776AB"/>
+    <text class="lang" x="874" y="222">Python</text>
   </g>
 </svg>

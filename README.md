@@ -32,13 +32,9 @@
 <h3 align="center">Активность</h3>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/metrics-calendar.svg" />
-  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/metrics-languages.svg" />
+  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/stats.svg" width="100%" alt="stats"/>
 </p>
 
 <p align="center">
-  <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/360I1337/360I1337/output/github-snake-dark.svg" />
-    <img alt="snake" src="https://raw.githubusercontent.com/360I1337/360I1337/output/github-snake.svg" />
-  </picture>
+  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/github-snake-dark.svg" width="100%" alt="snake"/>
 </p>
