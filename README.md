@@ -6,6 +6,8 @@
   <img src="https://readme-typing-svg.demolab.com?font=Fira+Code&weight=600&size=22&pause=1000&color=A78BFA&center=true&vCenter=true&width=520&lines=Backend+on+Go+%26+Python;VPN+%C2%B7+Telegram+bots+%C2%B7+Games+%C2%B7+ML;Always+building+something" alt="Typing SVG"/>
 </a>
 
+<img src="https://komarev.com/ghpvc/?username=360I1337&style=for-the-badge&color=7c3aed&label=PROFILE+VIEWS" />
+
 </div>
 
 ### 👋 Обо мне
@@ -33,7 +35,8 @@
 ### 📊 Активность
 
 <p align="center">
-  <img src="https://streak-stats.demolab.com?user=360I1337&theme=tokyonight&hide_border=true&background=0D1117" />
+  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/metrics-calendar.svg" />
+  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/metrics-languages.svg" />
 </p>
 
 <p align="center">
