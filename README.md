@@ -13,7 +13,10 @@
 <h3 align="center">Stack</h3>
 
 <p align="center">
-  <img src="assets/stack.svg" width="100%" alt="Go, Python, JavaScript, HTML, CSS, Linux, Bash, Docker, Nginx, Git"/>
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/stack-mobile.svg"/>
+    <img src="assets/stack.svg" width="100%" alt="Go, Python, JavaScript, HTML, CSS, Linux, Bash, Docker, Nginx, Git"/>
+  </picture>
 </p>
 
 <br/>
