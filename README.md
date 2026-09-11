@@ -8,8 +8,6 @@
 </p>
 
 
-<br/>
-
 <h3 align="center">Stack</h3>
 
 <p align="center">
@@ -19,30 +17,35 @@
   </picture>
 </p>
 
-<br/>
-
 <h3 align="center">Projects</h3>
 
 <p align="center">
-  <img src="assets/projects.svg" width="100%" alt="VEYLO, Lumberjack Clicker, VEYLO Bot"/>
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/projects-mobile.svg"/>
+    <img src="assets/projects.svg" width="100%" alt="VEYLO, Lumberjack Clicker, VEYLO Bot"/>
+  </picture>
 </p>
-
-<br/>
 
 <h3 align="center">Activity</h3>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/stats.svg?v=6" width="100%" alt="stats"/>
+  <picture>
+    <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/360I1337/360I1337/output/stats-mobile.svg?v=7"/>
+    <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/stats.svg?v=7" width="100%" alt="stats"/>
+  </picture>
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/calendar.svg?v=6" width="100%" alt="contribution calendar"/>
+  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/calendar.svg?v=7" width="100%" alt="contribution calendar"/>
 </p>
-
-<br/>
 
 <h3 align="center">Contact</h3>
 
 <p align="center">
-  <a href="https://t.me/MostViable"><img src="assets/contact.svg" width="100%" alt="Telegram @MostViable"/></a>
+  <a href="https://t.me/MostViable">
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/contact-mobile.svg"/>
+    <img src="assets/contact.svg" width="100%" alt="Telegram @MostViable"/>
+  </picture>
+  </a>
 </p>

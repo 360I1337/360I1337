@@ -1,6 +1,6 @@
-"""Рисует dist/stats.svg (цифры + языки) и dist/calendar.svg (календарь коммитов) в стиле шапки.
-Токен (classic, repo) из env METRICS_TOKEN — нужен, чтобы учитывались приватные репо.
-Наружу уходят только суммы и названия языков, имена репозиториев не выводятся."""
+"""Renders dist/*.svg cards (totals, languages, contribution calendar) in the header style.
+Needs a classic token with repo scope in METRICS_TOKEN so private repos are counted.
+Only totals and language names are published, never repository names."""
 import datetime, json, os, sys, urllib.request
 
 QUERY = """{ viewer {
@@ -23,7 +23,7 @@ def fetch(token):
 
 
 def streaks(days, today):
-    """days: [(date, count)] по возрастанию. Текущий стрик не рвётся, если сегодня ещё не коммитил."""
+    """days: [(date, count)] ascending. A day with no commits yet does not break the current streak."""
     best = run = 0
     for _, n in days:
         run = run + 1 if n else 0
@@ -38,7 +38,7 @@ def streaks(days, today):
 
 
 def levels(counts):
-    """0 — пусто, 1..4 — квартили среди ненулевых дней (как у GitHub)."""
+    """0 for an empty day, 1..4 quartiles among non-empty ones, the way GitHub shades them."""
     nz = sorted(n for n in counts if n)
     if not nz:
         return lambda n: 0
@@ -46,8 +46,9 @@ def levels(counts):
     return lambda n: 0 if not n else 1 + sum(n > t for t in q)
 
 
-def frame(h, body, style, glow_cx=300):
-    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 {h}" width="1200" height="{h}">
+def frame(h, body, style, width=1200, glow_cx=300):
+    w = width
+    return f"""<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 {w} {h}" width="{w}" height="{h}">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#0b0a18"/><stop offset=".55" stop-color="#15113a"/><stop offset="1" stop-color="#0d1117"/>
@@ -57,35 +58,40 @@ def frame(h, body, style, glow_cx=300):
     </linearGradient>
     <radialGradient id="glow"><stop offset="0" stop-color="#7c3aed" stop-opacity=".45"/><stop offset="1" stop-color="#7c3aed" stop-opacity="0"/></radialGradient>
     <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M40 0H0V40" fill="none" stroke="#ffffff" stroke-opacity=".05"/></pattern>
-    <clipPath id="frame"><rect width="1200" height="{h}" rx="18"/></clipPath>
+    <clipPath id="frame"><rect width="{w}" height="{h}" rx="18"/></clipPath>
   </defs>
   <style>
     text {{ font-family: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace; }}
     .glow {{ animation: drift 12s ease-in-out infinite alternate both; }}
-    @keyframes drift {{ from {{ transform: translate(0, 0); }} to {{ transform: translate(600px, 0); }} }}
+    @keyframes drift {{ from {{ transform: translate(0, 0); }} to {{ transform: translate({w // 2}px, 0); }} }}
 {style}
   </style>
   <g clip-path="url(#frame)">
-    <rect width="1200" height="{h}" fill="url(#bg)"/>
-    <rect width="1200" height="{h}" fill="url(#grid)"/>
+    <rect width="{w}" height="{h}" fill="url(#bg)"/>
+    <rect width="{w}" height="{h}" fill="url(#grid)"/>
     <ellipse class="glow" cx="{glow_cx}" cy="{h // 2}" rx="380" ry="{h * 0.6:.0f}" fill="url(#glow)"/>
 {body}
-    <rect y="{h - 4}" width="1200" height="4" fill="#7c3aed" opacity=".6"/>
+    <rect y="{h - 4}" width="{w}" height="4" fill="#7c3aed" opacity=".6"/>
   </g>
 </svg>
 """
 
 
-def render_stats(v, days, today):
-    cal = v["contributionsCollection"]["contributionCalendar"]
-    cur, best = streaks(days, today)
-
+def language_sizes(v):
     langs = {}
     for r in v["repositories"]["nodes"]:
         for e in r["languages"]["edges"]:
             name = e["node"]["name"]
             size, _ = langs.get(name, (0, None))
             langs[name] = (size + e["size"], e["node"]["color"] or "#8b80c9")
+    return langs
+
+
+def render_stats(v, days, today):
+    cal = v["contributionsCollection"]["contributionCalendar"]
+    cur, best = streaks(days, today)
+
+    langs = language_sizes(v)
     total = sum(s for s, _ in langs.values()) or 1
     top = sorted(langs.items(), key=lambda kv: -kv[1][0])[:6]
 
@@ -120,6 +126,45 @@ def render_stats(v, days, today):
     .lang { font-size: 19px; fill: #c4b5fd; }
     .pct { font-size: 17px; fill: #8b80c9; }"""
     return frame(300, body, style)
+
+
+def render_stats_mobile(v, days, today):
+    """Same card for narrow screens: numbers in two rows, languages underneath."""
+    cal = v["contributionsCollection"]["contributionCalendar"]
+    cur, best = streaks(days, today)
+    langs = language_sizes(v)
+    total = sum(s for s, _ in langs.values()) or 1
+    top = sorted(langs.items(), key=lambda kv: -kv[1][0])[:6]
+
+    nums = [(cal["totalContributions"], "contributions / year"), (cur, "current streak"),
+            (best, "longest streak"), (v["repositories"]["totalCount"], "repositories")]
+    parts = []
+    for i, (n, label) in enumerate(nums):
+        x, y = 32 + (i % 2) * 290, 100 + (i // 2) * 110
+        parts.append(f'<text class="num" x="{x}" y="{y}">{n}</text><text class="lbl" x="{x}" y="{y + 28}">{label}</text>')
+
+    bx, bw, by = 32, 536, 312
+    parts.append(f'<text class="h" x="{bx}" y="292">Languages</text>')
+    x = bx
+    bars = []
+    for name, (size, color) in top:
+        w = bw * size / total
+        bars.append(f'<rect x="{x:.1f}" y="{by}" width="{max(w, 2):.1f}" height="14" fill="{color}"/>')
+        x += w
+    parts.append(f'<clipPath id="bar"><rect x="{bx}" y="{by}" width="{bw}" height="14" rx="7"/></clipPath>'
+                 f'<g clip-path="url(#bar)">{"".join(bars)}</g>')
+    for i, (name, (size, color)) in enumerate(top):
+        lx, ly = bx + (i % 2) * 290, 380 + (i // 2) * 46
+        parts.append(f'<circle cx="{lx + 8}" cy="{ly - 7}" r="8" fill="{color}"/>'
+                     f'<text class="lang" x="{lx + 28}" y="{ly}">{name}</text>'
+                     f'<text class="pct" x="{lx + 260}" y="{ly}" text-anchor="end">{100 * size / total:.1f}%</text>')
+
+    style = """    .num { font-size: 54px; font-weight: 700; fill: url(#title); }
+    .lbl { font-size: 20px; fill: #8b80c9; }
+    .h { font-size: 24px; font-weight: 700; fill: #c4b5fd; }
+    .lang { font-size: 22px; fill: #c4b5fd; }
+    .pct { font-size: 20px; fill: #8b80c9; }"""
+    return frame(512, "    " + "".join(parts), style, width=600, glow_cx=150)
 
 
 def render_calendar(v, days):
@@ -160,8 +205,8 @@ def render_calendar(v, days):
 if __name__ == "__main__":
     if len(sys.argv) > 1 and sys.argv[1] == "test":
         d = [("2026-09-0%d" % i, n) for i, n in enumerate([1, 1, 0, 1, 1, 1, 0], 1)]
-        assert streaks(d, "2026-09-07") == (3, 3)          # сегодня 0 — стрик не рвётся
-        assert streaks(d, "2026-09-08") == (0, 3)          # вчера 0 — стрик кончился
+        assert streaks(d, "2026-09-07") == (3, 3)          # nothing today yet: streak holds
+        assert streaks(d, "2026-09-08") == (0, 3)          # nothing yesterday: streak is over
         assert streaks(d[:6], "2026-09-06") == (3, 3)
         f = levels([0, 1, 2, 3, 4, 5, 6, 7, 8])
         assert [f(n) for n in (0, 1, 4, 6, 8)] == [0, 1, 2, 3, 4]
@@ -174,4 +219,5 @@ if __name__ == "__main__":
     today = datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=3))).date().isoformat()
     os.makedirs("dist", exist_ok=True)
     open("dist/stats.svg", "w", encoding="utf-8").write(render_stats(v, days, today))
+    open("dist/stats-mobile.svg", "w", encoding="utf-8").write(render_stats_mobile(v, days, today))
     open("dist/calendar.svg", "w", encoding="utf-8").write(render_calendar(v, days))

@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 738" width="600" height="738">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0a18"/><stop offset=".55" stop-color="#15113a"/><stop offset="1" stop-color="#0d1117"/>
+    </linearGradient>
+    <linearGradient id="title" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#a78bfa"/>
+    </linearGradient>
+    <radialGradient id="glow"><stop offset="0" stop-color="#7c3aed" stop-opacity=".45"/><stop offset="1" stop-color="#7c3aed" stop-opacity="0"/></radialGradient>
+    <pattern id="grid" width="32" height="32" patternUnits="userSpaceOnUse"><path d="M32 0H0V32" fill="none" stroke="#ffffff" stroke-opacity=".05"/></pattern>
+    <clipPath id="card"><rect width="600" height="230" rx="16"/></clipPath>
+  </defs>
+  <style>
+    text { font-family: 'JetBrains Mono', 'Fira Code', Consolas, 'Courier New', monospace; }
+    .title { font-size: 34px; font-weight: 700; fill: url(#title); }
+    .desc { font-size: 22px; fill: #c4b5fd; }
+    .lang { font-size: 19px; fill: #8b80c9; }
+    .glow { animation: drift 9s ease-in-out infinite alternate both; }
+    @keyframes drift { 0% { transform: translate(0, 0); } 50% { transform: translate(300px, 60px); } 100% { transform: translate(120px, 120px); } }
+    .c { animation: in .8s ease-out both; }
+    @keyframes in { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
+  </style>
+  <g transform="translate(0 0)"><g class="c" style="animation-delay:0.00s" clip-path="url(#card)">
+    <rect width="600" height="230" fill="url(#bg)"/>
+    <rect width="600" height="230" fill="url(#grid)"/>
+    <ellipse class="glow" style="animation-delay:-0s" cx="120" cy="60" rx="260" ry="150" fill="url(#glow)"/>
+    <rect y="227" width="600" height="3" fill="#7c3aed" opacity=".6"/>
+    <text class="title" x="32" y="64">VEYLO</text>
+    <text class="desc" x="32" y="110">Self-hosted VPN service.</text><text class="desc" x="32" y="144">Fallback channel,</text><text class="desc" x="32" y="178">reconnect with backoff.</text>
+    <circle cx="40" cy="196" r="8" fill="#00ADD8"/>
+    <text class="lang" x="58" y="203">Go</text>
+  </g></g>
+  <g transform="translate(0 254)"><g class="c" style="animation-delay:0.15s" clip-path="url(#card)">
+    <rect width="600" height="230" fill="url(#bg)"/>
+    <rect width="600" height="230" fill="url(#grid)"/>
+    <ellipse class="glow" style="animation-delay:-3s" cx="120" cy="60" rx="260" ry="150" fill="url(#glow)"/>
+    <rect y="227" width="600" height="3" fill="#7c3aed" opacity=".6"/>
+    <text class="title" x="32" y="64">Lumberjack Clicker</text>
+    <text class="desc" x="32" y="110">Clicker game for</text><text class="desc" x="32" y="144">Yandex Games in plain</text><text class="desc" x="32" y="178">JavaScript, no frameworks.</text>
+    <circle cx="40" cy="196" r="8" fill="#F7DF1E"/>
+    <text class="lang" x="58" y="203">JavaScript</text>
+  </g></g>
+  <g transform="translate(0 508)"><g class="c" style="animation-delay:0.30s" clip-path="url(#card)">
+    <rect width="600" height="230" fill="url(#bg)"/>
+    <rect width="600" height="230" fill="url(#grid)"/>
+    <ellipse class="glow" style="animation-delay:-6s" cx="120" cy="60" rx="260" ry="150" fill="url(#glow)"/>
+    <rect y="227" width="600" height="3" fill="#7c3aed" opacity=".6"/>
+    <text class="title" x="32" y="64">VEYLO Bot</text>
+    <text class="desc" x="32" y="110">User dashboard, QR subs,</text><text class="desc" x="32" y="144">free trial, referrals,</text><text class="desc" x="32" y="178">device limits, admin panel.</text>
+    <circle cx="40" cy="196" r="8" fill="#3776AB"/>
+    <text class="lang" x="58" y="203">Python</text>
+  </g></g>
+</svg>
