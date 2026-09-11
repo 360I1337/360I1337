@@ -167,39 +167,52 @@ def render_stats_mobile(v, days, today):
     return frame(512, "    " + "".join(parts), style, width=600, glow_cx=150)
 
 
-def render_calendar(v, days):
+def render_calendar(v, days, width=1200, last_weeks=None, font=16):
+    """Whole year by default; last_weeks trims it to the most recent weeks for narrow screens."""
     weeks = v["contributionsCollection"]["contributionCalendar"]["weeks"]
+    caption = f'{v["contributionsCollection"]["contributionCalendar"]["totalContributions"]} contributions in the last year'
+    if last_weeks:
+        weeks = weeks[-last_weeks:]
+        shown = sum(d["contributionCount"] for w in weeks for d in w["contributionDays"])
+        caption = f"{shown} contributions in {last_weeks // 4} months"
+
     lvl = levels(n for _, n in days)
-    x0, y0, pitch, cell = 48, 74, 1104 / len(weeks), 16
+    pad = 48 if width > 800 else 32
+    y0, pitch = 34 + font * 1.6, (width - 2 * pad) / len(weeks)
+    cell, gap = pitch * 0.77, font * 1.5
     cols, months, prev = [], [], None
     for i, w in enumerate(weeks):
-        x = x0 + i * pitch
+        x = pad + i * pitch
         m = int(w["contributionDays"][0]["date"][5:7])
         if m != prev and i < len(weeks) - 2:
-            if not months or x - months[-1][0] > 60:
+            if not months or x - months[-1][0] > font * 3.8:
                 months.append((x, MONTHS[m - 1]))
             prev = m
         rects = "".join(
             f'<rect x="{x:.1f}" y="{y0 + datetime.date.fromisoformat(d["date"]).isoweekday() % 7 * pitch:.1f}" '
-            f'width="{cell}" height="{cell}" rx="4" fill="{SHADES[lvl(d["contributionCount"])]}"/>'
+            f'width="{cell:.1f}" height="{cell:.1f}" rx="{cell / 4:.1f}" fill="{SHADES[lvl(d["contributionCount"])]}"/>'
             for d in w["contributionDays"])
         cols.append(f'<g class="w" style="animation-delay:{i * 0.015:.3f}s">{rects}</g>')
 
-    total = v["contributionsCollection"]["contributionCalendar"]["totalContributions"]
-    lx = 1152 - 5 * 24 - 52
+    key, base = font + 8, y0 + 7 * pitch + gap
+    # on a narrow card the legend does not fit next to the caption, so it drops to its own line
+    wide = width > 800
+    ly = base if wide else base + font * 2.2
+    lx = width - pad - 5 * (key + 8) - font * 2.8 if wide else pad + font * 3
     body = "\n".join([
-        *(f'    <text class="m" x="{x:.1f}" y="58">{name}</text>' for x, name in months),
+        *(f'    <text class="m" x="{x:.1f}" y="{34 + font}">{name}</text>' for x, name in months),
         *("    " + c for c in cols),
-        f'    <text class="lbl" x="48" y="262">{total} contributions in the last year</text>',
-        f'    <text class="lbl" x="{lx - 12}" y="262" text-anchor="end">Less</text>',
-        *(f'    <rect x="{lx + k * 24}" y="248" width="16" height="16" rx="4" fill="{c}"/>' for k, c in enumerate(SHADES)),
-        f'    <text class="lbl" x="{lx + 5 * 24 + 4}" y="262">More</text>',
+        f'    <text class="lbl" x="{pad}" y="{base + font}">{caption}</text>',
+        f'    <text class="lbl" x="{lx - 10}" y="{ly + font}" text-anchor="end">Less</text>',
+        *(f'    <rect x="{lx + k * (key + 8)}" y="{ly}" width="{key}" height="{key}" rx="4" fill="{c}"/>'
+          for k, c in enumerate(SHADES)),
+        f'    <text class="lbl" x="{lx + 5 * (key + 8) + 4}" y="{ly + font}">More</text>',
     ])
-    style = """    .m { font-size: 16px; fill: #8b80c9; }
-    .lbl { font-size: 16px; fill: #8b80c9; }
-    .w { animation: in .5s ease-out both; }
-    @keyframes in { from { opacity: 0; } to { opacity: 1; } }"""
-    return frame(290, body, style, glow_cx=250)
+    style = f"""    .m {{ font-size: {font}px; fill: #8b80c9; }}
+    .lbl {{ font-size: {font}px; fill: #8b80c9; }}
+    .w {{ animation: in .5s ease-out both; }}
+    @keyframes in {{ from {{ opacity: 0; }} to {{ opacity: 1; }} }}"""
+    return frame(int(ly + gap + font), body, style, width=width, glow_cx=width // 5)
 
 
 if __name__ == "__main__":
@@ -221,3 +234,5 @@ if __name__ == "__main__":
     open("dist/stats.svg", "w", encoding="utf-8").write(render_stats(v, days, today))
     open("dist/stats-mobile.svg", "w", encoding="utf-8").write(render_stats_mobile(v, days, today))
     open("dist/calendar.svg", "w", encoding="utf-8").write(render_calendar(v, days))
+    open("dist/calendar-mobile.svg", "w", encoding="utf-8").write(
+        render_calendar(v, days, width=600, last_weeks=13, font=20))

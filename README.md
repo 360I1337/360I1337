@@ -36,7 +36,10 @@
 </p>
 
 <p align="center">
-  <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/calendar.svg?v=7" width="100%" alt="contribution calendar"/>
+  <picture>
+    <source media="(max-width: 600px)" srcset="https://raw.githubusercontent.com/360I1337/360I1337/output/calendar-mobile.svg?v=8"/>
+    <img src="https://raw.githubusercontent.com/360I1337/360I1337/output/calendar.svg?v=8" width="100%" alt="contribution calendar"/>
+  </picture>
 </p>
 
 <h3 align="center">Contact</h3>
