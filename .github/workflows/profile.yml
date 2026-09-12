@@ -20,6 +20,17 @@ jobs:
         env:
           METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
 
+      - name: Check token expiry
+        env:
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+        run: |
+          exp=$(curl -sI -H "Authorization: token $METRICS_TOKEN" https://api.github.com/user                 | tr -d '' | awk -F': ' 'tolower($1)=="github-authentication-token-expiration"{print $2}')
+          if [ -z "$exp" ]; then echo "METRICS_TOKEN: no expiry date" >> "$GITHUB_STEP_SUMMARY"; exit 0; fi
+          days=$(( ( $(date -d "$exp" +%s) - $(date +%s) ) / 86400 ))
+          echo "METRICS_TOKEN expires $exp ($days days left)" >> "$GITHUB_STEP_SUMMARY"
+          [ "$days" -lt 21 ] && echo "::warning::METRICS_TOKEN expires in $days days, the cards will stop updating"
+          exit 0
+
       - uses: crazy-max/ghaction-github-pages@v4
         with:
           target_branch: output
