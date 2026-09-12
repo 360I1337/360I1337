@@ -43,11 +43,11 @@
     <ellipse class="glow d1" cx="80" cy="50" rx="200" ry="130" fill="url(#glow)"/>
     <rect y="255" width="378" height="3" fill="#7c3aed" opacity=".6"/>
     <text class="title" x="28" y="62">VEYLO</text>
-    <text class="desc" x="28" y="108">Self-hosted VPN service.</text>
-    <text class="desc" x="28" y="138">Fallback channel,</text>
-    <text class="desc" x="28" y="168">reconnect with backoff.</text>
-    <circle cx="36" cy="216" r="7" fill="#00ADD8"/>
-    <text class="lang" x="52" y="222">Go</text>
+    <text class="desc" x="28" y="108">Own VPN service:</text>
+    <text class="desc" x="28" y="138">subscription facade,</text>
+    <text class="desc" x="28" y="168">routing, node configs.</text>
+    <circle cx="36" cy="216" r="7" fill="#3776AB"/>
+    <text class="lang" x="52" y="222">Python</text>
   </g></g>
 
   <g transform="translate(411 0)"><g class="c c2" clip-path="url(#card)">

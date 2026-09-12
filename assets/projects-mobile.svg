@@ -26,9 +26,9 @@
     <ellipse class="glow" style="animation-delay:-0s" cx="120" cy="60" rx="260" ry="150" fill="url(#glow)"/>
     <rect y="227" width="600" height="3" fill="#7c3aed" opacity=".6"/>
     <text class="title" x="32" y="64">VEYLO</text>
-    <text class="desc" x="32" y="110">Self-hosted VPN service.</text><text class="desc" x="32" y="144">Fallback channel,</text><text class="desc" x="32" y="178">reconnect with backoff.</text>
-    <circle cx="40" cy="196" r="8" fill="#00ADD8"/>
-    <text class="lang" x="58" y="203">Go</text>
+    <text class="desc" x="32" y="110">Own VPN service:</text><text class="desc" x="32" y="144">subscription facade,</text><text class="desc" x="32" y="178">routing, node configs.</text>
+    <circle cx="40" cy="196" r="8" fill="#3776AB"/>
+    <text class="lang" x="58" y="203">Python</text>
   </g></g>
   <g transform="translate(0 254)"><g class="c" style="animation-delay:0.15s" clip-path="url(#card)">
     <rect width="600" height="230" fill="url(#bg)"/>

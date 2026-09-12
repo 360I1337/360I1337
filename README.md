@@ -24,8 +24,8 @@
 
 <p align="center">
   <picture>
-    <source media="(max-width: 600px)" srcset="assets/projects-mobile.svg"/>
-    <img src="assets/projects.svg" width="100%" alt="VEYLO, Lumberjack Clicker, VEYLO Bot"/>
+    <source media="(max-width: 600px)" srcset="assets/projects-mobile.svg?v=2"/>
+    <img src="assets/projects.svg?v=2" width="100%" alt="VEYLO, Lumberjack Clicker, VEYLO Bot"/>
   </picture>
 </p>
 
