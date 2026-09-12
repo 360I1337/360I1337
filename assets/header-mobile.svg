@@ -30,9 +30,9 @@
     @keyframes type {
       0%   { opacity: 1; clip-path: inset(0 100% 0 0); }
       9%   { opacity: 1; clip-path: inset(0 0 0 0); }
-      22%  { opacity: 1; clip-path: inset(0 0 0 0); }
-      25%  { opacity: 0; clip-path: inset(0 0 0 0); }
-      100% { opacity: 0; clip-path: inset(0 0 0 0); }
+      19%  { opacity: 1; clip-path: inset(0 0 0 0); }
+      24%  { opacity: 1; clip-path: inset(0 100% 0 0); }
+      100% { opacity: 1; clip-path: inset(0 100% 0 0); }
     }
     .caret { animation: blink 1s steps(1) infinite; }
     @keyframes blink { 50% { opacity: 0; } }
