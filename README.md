@@ -1,5 +1,8 @@
 <p align="center">
-  <img src="assets/header.svg" width="100%" alt="360I1337"/>
+  <picture>
+    <source media="(max-width: 600px)" srcset="assets/header-mobile.svg"/>
+    <img src="assets/header.svg" width="100%" alt="miquella"/>
+  </picture>
 </p>
 
 <p align="center">
