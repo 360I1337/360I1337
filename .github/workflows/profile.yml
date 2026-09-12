@@ -27,11 +27,11 @@ jobs:
           head=$(curl -sI -H "Authorization: token $METRICS_TOKEN" https://api.github.com/user | tr -d '\015')
           exp=$(printf '%s\n' "$head" | awk -F': ' 'tolower($1)=="github-authentication-token-expiration"{print $2}')
           if [ -z "$exp" ]; then
-            echo "METRICS_TOKEN: no expiry date" >> "$GITHUB_STEP_SUMMARY"
+            echo "METRICS_TOKEN: no expiry date" | tee -a "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
           days=$(( ( $(date -d "$exp" +%s) - $(date +%s) ) / 86400 ))
-          echo "METRICS_TOKEN expires $exp ($days days left)" >> "$GITHUB_STEP_SUMMARY"
+          echo "METRICS_TOKEN expires $exp ($days days left)" | tee -a "$GITHUB_STEP_SUMMARY"
           if [ "$days" -lt 21 ]; then
             echo "::warning::METRICS_TOKEN expires in $days days, the cards will stop updating"
           fi
