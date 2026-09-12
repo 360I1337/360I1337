@@ -43,7 +43,7 @@
     <ellipse class="glow" cx="300" cy="100" rx="260" ry="130" fill="url(#glow)"/>
     <text class="mono" x="300" y="110" text-anchor="middle" font-size="62" font-weight="700" fill="url(#title)" letter-spacing="4">miquella</text>
     <g class="mono" font-size="22" fill="#c4b5fd" text-anchor="middle">
-      <text class="line l1" x="300" y="168">Go · Python · JavaScript<tspan class="caret" fill="#6d5bd0">_</tspan></text>
+      <text class="line l1" x="300" y="168">Python · JavaScript · Go<tspan class="caret" fill="#6d5bd0">_</tspan></text>
       <text class="line l2" x="300" y="168">VPN infrastructure &amp; network transports<tspan class="caret" fill="#6d5bd0">_</tspan></text>
       <text class="line l3" x="300" y="168">Telegram bots &amp; Yandex Games titles<tspan class="caret" fill="#6d5bd0">_</tspan></text>
       <text class="line l4" x="300" y="168">now: building VEYLO<tspan class="caret" fill="#6d5bd0">_</tspan></text>

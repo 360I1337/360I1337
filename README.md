@@ -1,7 +1,7 @@
 <p align="center">
   <picture>
-    <source media="(max-width: 600px)" srcset="assets/header-mobile.svg?v=2"/>
-    <img src="assets/header.svg?v=2" width="100%" alt="miquella"/>
+    <source media="(max-width: 600px)" srcset="assets/header-mobile.svg?v=3"/>
+    <img src="assets/header.svg?v=3" width="100%" alt="miquella"/>
   </picture>
 </p>
 
